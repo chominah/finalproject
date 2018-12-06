@@ -16,12 +16,13 @@
        <typeAlias type="finalproj.dto.GstudentVO" alias="gsvo"/>
        <typeAlias type="finalproj.dto.JobkeywordVO" alias="keyvo"/>
        <typeAlias type="finalproj.dto.ResumeVO" alias="rvo"/>
-       <typeAlias type="finalproj.dto.RoleVO" alias="rolvo"/>
-       <typeAlias type="finalproj.dto.SboardVO" alias="bvo"/>
+       <typeAlias type="finalproj.dto.SboardVO" alias="sbvo"/>
        <typeAlias type="finalproj.dto.ScheduleVO" alias="shvo"/>
        <typeAlias type="finalproj.dto.Stu_LoggerVO" alias="slogvo"/>
        <typeAlias type="finalproj.dto.StudentVO" alias="svo"/>
        <typeAlias type="finalproj.dto.TeacherVO" alias="tvo"/>
        <typeAlias type="finalproj.dto.Teacher_LoggerVO" alias="tlogvo"/>
+       <typeAlias type="finalproj.dto.TboardVO" alias="tbvo"/>
+       
     </typeAliases>
  </configuration>
