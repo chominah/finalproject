@@ -34,10 +34,6 @@ import finalproj.mvc.dao.AdminDao;
 @Controller
 public class FeedBackController {
 
-	@RequestMapping(value="/")
-	public String home() {
-		return "Edu_Resume";
-	}
 	@Autowired
 	private AdminDao dao;
 
