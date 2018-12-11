@@ -1,6 +1,6 @@
 # finalproject
 ## 박주형
-<div>
+<pre>
 1. Mapper : FeedBackMapper.xml 추가
 2. dao : AdminDao.java 추가
 3. Controller
@@ -13,11 +13,13 @@
  2) Edu_Company.jsp
  3) Edu_Resume.jsp
  
- </div>
+ </pre>
  ## tiles 설정
+<pre>
  1. WEB-INF/tiles : tiles-definitions.xml
-2. WEB-INF/template/default
- 1) footer.jsp
- 2) header.jsp
- 3) menu.jsp
- 4) template.jsp
+ 2. WEB-INF/template/default
+  1) footer.jsp
+  2) header.jsp
+  3) menu.jsp
+  4) template.jsp
+</pre>
