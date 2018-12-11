@@ -14,7 +14,7 @@
  2) Edu_Company.jsp
  3) Edu_Resume.jsp
  </pre>
- ## tiles 설정
+ ### tiles 설정
 <pre>
  1. WEB-INF/tiles : tiles-definitions.xml
  2. WEB-INF/template/default
