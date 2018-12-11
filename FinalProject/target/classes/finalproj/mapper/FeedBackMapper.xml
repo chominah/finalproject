@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fback">
+	<!-- 학생관리 기업관련 피드백 리스트 -->
+	<resultMap type="java.util.Map" id="componylist">
+		<result column="cpfdate" property="cpfdate"  />
+		<result column="cpname" property="cpname" />
+		<result column="cname" property="cname" />
+		<result column="cordinal" property="cordinal" />
+		<result column="sname" property="sname" />
+		<result column="cpfnum" property="cpfnum" />
+	</resultMap>
+	<select id="compony" resultMap="componylist">
+		select cpf.cpfdate cpfdate,
+		cpl.cpname cpname,
+		c.cname cname, c.cordinal cordinal, s.sname
+		sname,cpf.cpfnum cpfnum
+		from cplist cpl, student s, cpfeed cpf, class c
+		where cpl.cpnum = cpf.cpnum
+		and cpf.snum = s.snum
+		and s.cnum = c.cnum
+	</select>
+	<!-- 기업피드백 요청 상세보기 -->
+	<select id="content" parameterType="int" resultType="String">
+		select
+		cpfcontent from cpfeed where cpfnum=#{cpfnum}
+	</select>
+	<!-- 피드백 업데이트 -->
+	<update id="upcontent" parameterType="cpfvo">
+		update cpfeed set
+		cpfcontent = #{cpfcontent} where cpfnum=#{cpfnum}
+	</update>
+	<!-- 이력서&포트폴리오 피드백 요청 리스트 -->
+	<resultMap type="java.util.Map" id="resumeList">
+		<result column="snum" property="snum" />
+		<result column="sname" property="sname" />
+		<result column="smail" property="smail" />
+		<result column="sphone" property="sphone" />
+		<result column="cname" property="cname" />
+		<result column="cordinal" property="cordinal" />
+	</resultMap>
+	<select id="resume" resultMap="resumeList">
+		select s.snum snum, s.sname
+		sname,s.smail smail,s.sphone sphone,c.cname cname,c.cordinal cordinal
+		from
+		student s,class c
+		where c.cnum = s.cnum
+	</select>
+	<!-- 학생에 대한 이력서&포트폴리오 내역 조회 -->
+	<select id="resume_fileview" parameterType="int"
+		resultType="rvo">
+		select rnum,snum,rfile,rdate from resume
+		where snum=#{snum}
+	</select>
+	
+	<!-- 이력서&포트폴리오 파일 피드백을 위한 파일 업데이트 -->
+	<update id="rfile_update" parameterType="rvo">
+		update resume set rfile=#{rfile} where rnum=#{rnum}
+	</update>
+
+	<!-- 학생에 대한 이력서&포트폴리오 내역 조회 -->
+	<select id="send_resumelist" parameterType="int"
+		resultType="rvo">
+		select rnum,snum,rfile,rdate from resume
+		where snum=#{snum}
+	</select>
+
+</mapper>
