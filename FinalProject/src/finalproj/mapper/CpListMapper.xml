@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  
+<mapper namespace="cplist">
+	
+
+	 <select id="alllist" resultType="cpvo">
+		select cpnum, cpname, cploc, keyword , cplink
+		from cplist
+	</select> 
+	
+	<insert id="addcplist" parameterType="cpvo">
+		insert into cplist values(#{cpnum},#{cpname},#{cploc},#{keyword},#{cplink})
+	</insert>
+</mapper>

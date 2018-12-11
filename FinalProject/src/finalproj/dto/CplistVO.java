@@ -1,21 +1,41 @@
 package finalproj.dto;
 
+import java.util.List;
+
 public class CplistVO {
-	private int keynum;
+	private String keyword;
 	private String cpnum;
 	private String cpname;
 	private String cploc;
+	private String cplink;
+	
+	private List< CplistVO> cplist;
+	
+	
+	
 	/**
-	 * @return the keynum
+	 * @return the cplist
 	 */
-	public int getKeynum() {
-		return keynum;
+	public List<CplistVO> getCplist() {
+		return cplist;
 	}
 	/**
-	 * @param keynum the keynum to set
+	 * @param cplist the cplist to set
 	 */
-	public void setKeynum(int keynum) {
-		this.keynum = keynum;
+	public void setCplist(List<CplistVO> cplist) {
+		this.cplist = cplist;
+	}
+	/**
+	 * @return the keyword
+	 */
+	public String getKeyword() {
+		return keyword;
+	}
+	/**
+	 * @param keyword the keyword to set
+	 */
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 	/**
 	 * @return the cpnum
@@ -53,6 +73,19 @@ public class CplistVO {
 	public void setCploc(String cploc) {
 		this.cploc = cploc;
 	}
+	/**
+	 * @return the cplink
+	 */
+	public String getCplink() {
+		return cplink;
+	}
+	/**
+	 * @param cplink the cplink to set
+	 */
+	public void setCplink(String cplink) {
+		this.cplink = cplink;
+	}
+	
 	
 	
 }

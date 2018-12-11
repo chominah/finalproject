@@ -138,6 +138,13 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
+		      <!-- Json-object를 사용하기 위한 dependency -->
+      <!-- https://mvnrepository.com/artifact/org.json/json -->
+      <dependency>
+         <groupId>org.json</groupId>
+         <artifactId>json</artifactId>
+         <version>20180813</version>
+      </dependency>
 
 
 	</dependencies>
