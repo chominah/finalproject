@@ -1,5 +1,6 @@
 # finalproject
 ## 박주형
+### 폴더 설정
 <pre>
 1. Mapper : FeedBackMapper.xml 추가
 2. dao : AdminDao.java 추가
@@ -12,7 +13,6 @@
  1) Edu_Company_wirte.jsp
  2) Edu_Company.jsp
  3) Edu_Resume.jsp
- 
  </pre>
  ## tiles 설정
 <pre>
