@@ -44,8 +44,6 @@
  </ul>
 ```
 >> 결과화면
-<pre>
- <div><ul><li><a href="resume">이력서&포트폴리오 관리</a></li>
- <li><a href="company">관심기업 관리</a></li></ul></div>
-</pre>
+<pre><div><ul><li><a href="resume">이력서&포트폴리오 관리</a></li>
+<li><a href="company">관심기업 관리</a></li></ul></div></pre>
 
