@@ -36,7 +36,7 @@
   
 </pre>
  * menu.jsp 부분에 링크 넣어주시면 됩니다~
- //예시
+ 예시
  <ul>
   <li><a href="resume">이력서&포트폴리오 관리</a></li>
   <li><a href="company">관심기업 관리</a></li>
