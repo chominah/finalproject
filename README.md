@@ -1,6 +1,6 @@
 # finalproject
 ## 박주형
-### 폴더 설정
+> 폴더 설정
 <pre>
 1. Mapper : FeedBackMapper.xml 추가
 2. dao : AdminDao.java 추가
@@ -14,7 +14,7 @@
  2) Edu_Company.jsp
  3) Edu_Resume.jsp
  </pre>
- ### 내용
+ > 내용
  <pre>
  1. 학생관리_이력서&포트폴리오 피드백
   - 이력서&포트폴리오 피드백 요청이 들어온 학생들의 정보 View(학생이름, 이메일, 폰 번호, 강좌이름, 기수)
@@ -25,7 +25,7 @@
   - 피드백 요청 내용에 대한 상세보기를 클릭하게 되면 요청사항에 대한 내용이 뜨게 되고 그 내용에 대해 
     글을 재 업로드 하는 형식으로 피드백을 할 수 있게 만듦
  </pre>
- ### tiles 설정
+ > tiles 설정
 <pre>
  1. WEB-INF/tiles : tiles-definitions.xml
  2. WEB-INF/template/default
@@ -36,12 +36,11 @@
   
 </pre>
  * menu.jsp 부분에 링크 넣어주시면 됩니다~
-  '''c
+ > 예시
  <ul>
   <li><a href="resume">이력서&포트폴리오 관리</a></li>
   <li><a href="company">관심기업 관리</a></li>
  </ul>
- '''
 <pre>
  예시
 
