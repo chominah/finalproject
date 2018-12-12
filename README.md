@@ -35,6 +35,6 @@
   4) template.jsp
   
 </pre>
-**menu.jsp 부분에 링크 넣어주시면 됩니다~
+ * menu.jsp 부분에 링크 넣어주시면 됩니다~
 <pre>예시</pre>
 
