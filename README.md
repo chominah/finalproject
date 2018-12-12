@@ -47,7 +47,7 @@
 <pre><div><ul><li><a href="resume">이력서&포트폴리오 관리</a></li>
 <li><a href="company">관심기업 관리</a></li></ul></div></pre>
 
-##김윤재
+## 김윤재
 <pre>
 1. Mappler : jobinfo.xml
 2. dao : jobSearchDao.java
@@ -65,7 +65,7 @@
            email.jsp
            index.jsp
 
-내용)
+ > 내용
 1) index 초기화면엔 두 가지 주제로 기업을 조회할 수 있다. 첫번째로 나의 관심 키워드를
     항목에서 선택하여 기업리스트를 검색하여 볼 수 있고, 두번째로는 개설된 강좌를 선택하여
     관련 기업을 검색할 수 있다
