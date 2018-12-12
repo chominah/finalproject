@@ -7,7 +7,7 @@
 3. Controller
  1) FeedBackController.java 추가
  2) FeedBackRestController.java 추가
-4. WebContent/resources/upload 폴더 생성
+4. WebContent/resources/upload 폴더 생성(이력서&포트폴리오 파일을 올려서 저장해둘 폴더)
 5. WeB-INF/spring/sub : sub-pjh.xml 추가
 6. views
  1) Edu_Company_wirte.jsp
