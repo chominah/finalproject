@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ex {
+public class SaraminController {
    
    @RequestMapping(value="/saramin")
    public String home(HttpServletRequest req, HttpServletResponse resp) {
