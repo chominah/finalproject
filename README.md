@@ -662,3 +662,138 @@ ALTER TABLE tboard
          tnum
       );
 </pre>
+
+# DB 더미 데이터
+<pre>
+더미데이터 입력 순서와 insert문
+/*teacher 테이블*/
+create sequence tnum_seq increment by 1 start with 1;
+insert into teacher values(tnum_seq.nextVal, '김수환', '1972.01.01', 'javabook@naver.com', '강남구 역삼동', '010-0001-0001', '남자', 'javabook', 'test00', 1);
+insert into teacher values(tnum_seq.nextVal, '박선생', '1973.02.02', 'spring511@naver.com', '강남구 도곡동', '010-0002-0003', '남자', 'spring511', 'test00', 1);
+insert into teacher values(tnum_seq.nextVal, '최스승', '1973.03.03', 'teacher@naver.com', '강남구 뉴욕', '010-0002-0004', '여자', 'teacher', 'test00', 1);
+insert into teacher values(tnum_seq.nextVal, '강티쳐', '1974.04.04', 'javeeee@naver.com', '강남구 부르클린', '010-0002-0005', '남자', 'javeeee', 'test00', 1);
+insert into teacher values(tnum_seq.nextVal, '주프로', '1975.05.05', 'kostaaa@naver.com', '강남구 벤쿠버', '010-0002-0006', '남자', 'kostaaa', 'test00', 1);
+
+ 
+
+/* 관리자*/
+
+create sequence admin_seq increment by 1 start with 1;
+
+insert into admin values(admin_seq.nextVal, '김관리', '1991.12.01', 'aaa@naver.com', '경기도 우리집', '010-1111-1011', '남자', 'adminidenti1', 'test00', 2);
+insert into admin values(admin_seq.nextVal, '박관리', '1991.12.01', 'bbb@naver.com', '경기도 우리집', '010-1111-1012', '남자', 'adminidenti2', 'test00', 2);
+insert into admin values(admin_seq.nextVal, '최관리', '1991.12.01', 'ccc@naver.com', '경기도 우리집', '010-1111-1013', '여자', 'adminidenti3', 'test00', 2);
+insert into admin values(admin_seq.nextVal, '주관리', '1991.12.01', 'ddd@naver.com', '경기도 우리집', '010-1111-1041', '남자', 'adminidenti4', 'test00', 2);
+insert into admin values(admin_seq.nextVal, '고관리', '1991.12.01', 'eee@naver.com', '경기도 우리집', '010-1111-1051', '여자', 'adminidenti5', 'test00', 2);
+insert into admin values(admin_seq.nextVal, '황관리', '1991.12.01', 'fff@naver.com', '경기도 우리집', '010-1111-1061', '남자', 'adminidenti6', 'test00', 2);
+ 
+/*cplist*/
+create sequence cplist_seq increment by 1 start with 1;
+
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal,'가나다솔루션','강남구 역삼동','SI, 솔루션, java, 자바, 금융','www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신aa', '금천구 가산동', '통신, 보안, oracle, spring, 스프링','www.naver.com','toeicseoul@gmail.com' );
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신bb', '금천구 가산동', '통신, 보안, oracle, 의료, solution' ,'www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신cc', '금천구 가산동', '통신, 보안, oracle, spring, java, 자바 ' ,'www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신dd', '금천구 가산동', '통신, 보안, oracle, spring, 안드로이드, android' ,'www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신ee', '금천구 가산동', '통신, 보안, oracle, spring, 중소기업' ,'www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신ff', '금천구 가산동', '통신, 보안, oracle, spring, 강소기업' ,'www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신gg', '금천구 가산동', '통신, 보안, oracle, spring, 1000대기업' ,'www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신hB', '금천구 가산동', '통신, 보안, oracle, spring, 정보처리기사' ,'www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신AD', '금천구 가산동', '통신, 보안, oracle, spring, 인공지능, AI' ,'www.naver.com','toeicseoul@gmail.com');
+insert into cplist(cpnum, cpname, cploc, keyword, cplink, ceomail) values( cplist_seq.nextVal, '귀요미정보통신QQ', '금천구 가산동', '통신, 보안, oracle, spring, 정보처리기사, 빅데이터, BIGDATA, DBA' ,'www.naver.com','toeicseoul@gmail.com');
+ 
+/*cert*/
+
+CREATE SEQUENCE crnum_seq
+increment by 1
+start with 1;
+
+insert into cert values(crnum_seq.nextVal, '정보처리기사');
+insert into cert values(crnum_seq.nextVal, '정보보안기사');
+insert into cert values(crnum_seq.nextVal, 'sqld');
+insert into cert values(crnum_seq.nextVal, '컴퓨터활용능력 1급');
+insert into cert values(crnum_seq.nextVal, '컴퓨터활용능력 2급');
+insert into cert values(crnum_seq.nextVal, '워드프로세서');
+insert into cert values(crnum_seq.nextVal, '리눅스 마스터');
+insert into cert values(crnum_seq.nextVal, '정보처리산업기사');
+insert into cert values(crnum_seq.nextVal, '정보처리기능사');
+ 
+/*jobkeyword*/
+create sequence jobkeyword_seq increment by 1 start with 1;
+
+insert into jobkeyword values(jobkeyword_seq.nextVal, 'SI');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '솔루션');
+insert into jobkeyword values(jobkeyword_seq.nextVal, 'java');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '금융');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '통신');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '보안');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '중소기업');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '강소기업');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '안드로이드');
+insert into jobkeyword values(jobkeyword_seq.nextVal, 'android');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '빅데이터');
+insert into jobkeyword values(jobkeyword_seq.nextVal, 'BIGDATA');
+insert into jobkeyword values(jobkeyword_seq.nextVal, 'DBA');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '취업');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '신입사원');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '데이터베이스');
+insert into jobkeyword values(jobkeyword_seq.nextVal, '인공지능');
+insert into jobkeyword values(jobkeyword_seq.nextVal, 'AI');
+ 
+/*class*/
+
+/*강의번호 시퀀스 1부터 시작*/
+create sequence cnum_seq
+increment by 1
+start with 4;
+
+/*기수번호 시퀀스 188기부터 시작*/
+create sequence cordinal_seq
+increment by 1
+start with 188;
+
+/*강의번호 1~3은 종료된 강의이므로 시쿼스 적용 안함*/
+insert into class values(1, '자바', 185, 8, '2018.10.10', '2018.10.20', 1, 10);
+insert into class values(2, '스프링', 186, 1, '2018.11.01' ,'2018.11.10', 2, 10);
+insert into class values(3, 'C', 187, 3, '2018.11.13', '2018.11.23', 3, 10);
+insert into class values(cnum_seq.nextVal, 'C++', cordinal_seq.nextVal, 5, '2018.12.01', '2018.12.12', 4, 10);
+insert into class values(cnum_seq.nextVal, '리눅스',  cordinal_seq.nextVal, 6, '2018.12.05', '2018.12.16', 5, 10);
+ 
+/*student*/
+
+CREATE SEQUENCE snum_seq
+INCREMENT by 1
+start with 4;
+
+insert into student values(snum_seq.nextVal,'이규현','1991.05.11','andycandy@naver.com','경기도 시흥시 오타와','010-8908-3333','비전공'
+,'남자',4,1,'금융','andycandy','test00',3);
+insert into student values(snum_seq.nextVal,'최민수','1989.05.11','sinminsoo@naver.com','경기도 시흥시 철산동','010-8908-8685','전공'
+,'남자',4,2,'인공지능','sinminsoo','test00',3);
+insert into student values(snum_seq.nextVal,'김구라','1992.03.14','lierkim@naver.com','경기도 고양시 구라동','010-8908-4646','비전공'
+,'남자',5,1,'spring','lierkim','test00',3);
+insert into student values(snum_seq.nextVal,'김윤재','1993.11.04','dbsxjf2@naver.com','경기도 시흥시 목감동','010-8908-2476','전공'
+,'남자',1,1,'java','dbsxjf2','test00',3);
+insert into student values(snum_seq.nextVal,'강형욱','1993.12.31','kanghw@naver.com','경기도 시흥시 빅토리아','010-8908-2111','비전공'
+,'남자',2,1,'SI','kanghw','test00',3);
+insert into student values(snum_seq.nextVal,'최연하','1995.02.11','choikiller@naver.com','경기도 시흥시 빅토리아','010-8908-2155','비전공'
+,'여자',3,3,'oracle','choikiller','test00',3);
+ 
+/*수료자 테이블*/
+
+/*현재까지 수료생은 시쿼스 적용 안하고 4부터 시작*/
+create sequence gstudent_seq increment by 1 start with 4;
+
+insert into gstudent values(1, 185, '비전공', 1);
+insert into gstudent values(2, 186, '전공', 1);
+insert into gstudent values(3, 187, '비전공', 3);
+ 
+/*관심기업리스트 favlist*/
+
+insert into favlist(snum, cpnum) values(4, 1);
+insert into favlist(snum, cpnum) values(5, 2 );
+insert into favlist(snum, cpnum) values(6, 3 );
+insert into favlist(snum, cpnum) values(7, 4 );
+insert into favlist(snum, cpnum) values(8, 5 );
+insert into favlist(snum, cpnum) values(9, 6 );
+
+</pre>
