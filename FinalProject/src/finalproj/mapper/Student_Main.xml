@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main1">
+
+	<select id="slist" resultType="svo">
+		select sname from student
+	</select>
+
+	<select id="snum" resultType="int" parameterType="String">
+		select snum from student where sname=#{sname}
+	</select>
+
+	<select id="gno" resultType="int">
+		select max(groupno) from stgroup
+	</select>
+
+<!-- 	<resultMap type="svo" id="studentresult">
+		<id property="snum" column="snum" javaType="int" />
+		<result property="sname" column="sname" />
+		<collection property="stgroup" javaType="java.util.list"
+			resultMap="stresult" ofType="stvo">
+		</collection>
+	</resultMap>
+	<resultMap type="stvo" id="stresult">
+		<id property="snum" column="snum" javaType="int" />
+		<result property="groupno" column="groupno" />
+		<result property="groupname" column="groupname" />
+	</resultMap> -->
+
+	<insert id="insert" parameterType="stvo">
+		insert into stgroup values(#{snum},#{groupno},'미정')
+	</insert>
+
+</mapper>
+  
