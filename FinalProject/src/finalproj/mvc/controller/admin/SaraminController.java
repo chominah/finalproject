@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SaraminController {
-   
+   // using api
    @RequestMapping(value="/saramin")
    public String home(HttpServletRequest req, HttpServletResponse resp) {
       System.out.println("main_ex");

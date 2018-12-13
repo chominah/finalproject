@@ -3,6 +3,7 @@ package finalproj.dto;
 public class InclinationVO {
 	private int innum,snum;
 	private String infile,ingrade;
+	
 	public int getInnum() {
 		return innum;
 	}
