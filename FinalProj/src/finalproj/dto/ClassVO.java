@@ -4,10 +4,23 @@ public class ClassVO {
 	private int cnum;
 	private int cordinal;
 	private int croom;
-	private int groupno;
+	private int totaldays,tnum;
 	private String cname;
 	private String cbegin;
 	private String cend;
+	
+	public int getTnum() {
+		return tnum;
+	}
+	public void setTnum(int tnum) {
+		this.tnum = tnum;
+	}
+	public int getTotaldays() {
+		return totaldays;
+	}
+	public void setTotaldays(int totaldays) {
+		this.totaldays = totaldays;
+	}
 	/**
 	 * @return the cnum
 	 */
@@ -43,18 +56,6 @@ public class ClassVO {
 	 */
 	public void setCroom(int croom) {
 		this.croom = croom;
-	}
-	/**
-	 * @return the groupno
-	 */
-	public int getGroupno() {
-		return groupno;
-	}
-	/**
-	 * @param groupno the groupno to set
-	 */
-	public void setGroupno(int groupno) {
-		this.groupno = groupno;
 	}
 	/**
 	 * @return the cname

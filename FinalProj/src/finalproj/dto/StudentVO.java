@@ -1,8 +1,28 @@
 package finalproj.dto;
 
+import java.util.List;
+
 public class StudentVO {
-	private int snum, cnum, scert, keynum, groupno;
-	private String sname, sbirth, smail, saddr, sphone, smajor, sgender, sid, spwd;
+	private int snum, cnum, scert, rolnum;
+	private String sname, sbirth, smail, saddr, sphone, smajor, sgender, sid, spwd, keyword;
+	private SboardVO sboard_detail;
+	private List<SboardVO> sboard;
+
+	public SboardVO getSboard_detail() {
+		return sboard_detail;
+	}
+
+	public void setSboard_detail(SboardVO sboard_detail) {
+		this.sboard_detail = sboard_detail;
+	}
+
+	public List<SboardVO> getSboard() {
+		return sboard;
+	}
+
+	public void setSboard(List<SboardVO> sboard) {
+		this.sboard = sboard;
+	}
 
 	public int getSnum() {
 		return snum;
@@ -28,20 +48,20 @@ public class StudentVO {
 		this.scert = scert;
 	}
 
-	public int getKeynum() {
-		return keynum;
+	public String getKeyword() {
+		return keyword;
 	}
 
-	public void setKeynum(int keynum) {
-		this.keynum = keynum;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
-	public int getGroupno() {
-		return groupno;
+	public int getRolnum() {
+		return rolnum;
 	}
 
-	public void setGroupno(int groupno) {
-		this.groupno = groupno;
+	public void setRolnum(int rolnum) {
+		this.rolnum = rolnum;
 	}
 
 	public String getSname() {

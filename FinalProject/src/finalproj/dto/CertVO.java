@@ -1,8 +1,15 @@
 package finalproj.dto;
 
 public class CertVO {
-	private int crnum;
+	private int crnum,cnt;
 	private String crname;
+	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	/**
 	 * @return the crnum
 	 */

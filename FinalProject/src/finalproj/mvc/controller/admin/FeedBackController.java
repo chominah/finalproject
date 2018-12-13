@@ -38,7 +38,7 @@ public class FeedBackController {
 	private AdminDao dao;
 
 	// ---- Edu_resume.jsp start ----
-	// ÀÌ·Â¼­ ½ÅÃ» ¸®½ºÆ® View(Edu_resume.jsp È­¸é)
+	// ì´ë ¥ì„œ ì‹ ì²­ ë¦¬ìŠ¤íŠ¸ View(Edu_resume.jsp í™”ë©´)
 	@RequestMapping(value = "/resume")
 	public String edu_resume(Model model) {
 		List<Map<String, Object>> list = dao.fback_Resume();
@@ -48,16 +48,16 @@ public class FeedBackController {
 	}
 	
 
-	// resume ÆÄÀÏ ¾÷·Îµå
-	// rnum(ÀÌ·Â¼­ Å×ÀÌºíÀÇ pk)ÀÇ °ª°ú mfile(ÀÌ·Â¼­ Å×ÀÌºíÀÇ rfile)ÀÇ °ªÀ» ÆÄ¶ó¸ŞÅ¸ °ªÀ¸·Î ¹Ş¾Æ
-	// ÁöÁ¤µÈ °æ·Î¿¡ ÆÄÀÏÀ» ¾÷·Îµå ½ÃÅ°°í DB¿¡ ÀúÀåÇÏ´Â Çü½ÄÀÌ´Ù.
+	// resume íŒŒì¼ ì—…ë¡œë“œ
+	// rnum(ì´ë ¥ì„œ í…Œì´ë¸”ì˜ pk)ì˜ ê°’ê³¼ mfile(ì´ë ¥ì„œ í…Œì´ë¸”ì˜ rfile)ì˜ ê°’ì„ íŒŒë¼ë©”íƒ€ ê°’ìœ¼ë¡œ ë°›ì•„
+	// ì§€ì •ëœ ê²½ë¡œì— íŒŒì¼ì„ ì—…ë¡œë“œ ì‹œí‚¤ê³  DBì— ì €ì¥í•˜ëŠ” í˜•ì‹ì´ë‹¤.
 	@PostMapping(value = "rfile_upload")
 	public String rfile_upload(@RequestParam("rnum") int rnum, @RequestParam("mfile") MultipartFile mfile, Model model,
 			HttpServletRequest request) {
-		// ÁöÁ¤µÈ °æ·Î·Î ÆÄÀÏÀ» ÀúÀå 
+		// ì§€ì •ëœ ê²½ë¡œë¡œ íŒŒì¼ì„ ì €ì¥ 
 		String file_path = "resources\\upload\\";
 		String r_path = request.getRealPath("/");
-		// ÆÄÀÏ¸í
+		// íŒŒì¼ëª…
 		String oriFn = mfile.getOriginalFilename();
 		String contentType = mfile.getContentType();
 		StringBuffer path = new StringBuffer();
@@ -67,28 +67,28 @@ public class FeedBackController {
 		File f = new File(path.toString());
 		System.out.println(f.exists());
 
-		// ÆÄÀÏ ¾÷·Îµå ÁøÇà
+		// íŒŒì¼ ì—…ë¡œë“œ ì§„í–‰
 		try {
 			mfile.transferTo(f);
 		} catch (IllegalStateException | IOException e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("fileName", oriFn);
-		// ----ÆÄÀÏ ¾÷·Îµå ÁøÇà End-----
+		// ----íŒŒì¼ ì—…ë¡œë“œ ì§„í–‰ End-----
 		
 		
-		// ---- DBÅ×ÀÌºí¿¡ update ½ÇÇà -----
+		// ---- DBí…Œì´ë¸”ì— update ì‹¤í–‰ -----
 		ResumeVO rvo = new ResumeVO();
 		rvo.setRfile(oriFn);
 		rvo.setRnum(rnum);
 		dao.rfile_up(rvo);
-		// ---- DBÅ×ÀÌºí¿¡ update ½ÇÇà -----
+		// ---- DBí…Œì´ë¸”ì— update ì‹¤í–‰ -----
 		return "redirect:resume";
 	}
 	// ---- Edu_resume.jsp end -----
 	
 	// ---- Edu_Company.jsp start ----
-	// ÇĞ»ı°ü¸® °ü½É±â¾÷ ÇÇµå¹é
+	// í•™ìƒê´€ë¦¬ ê´€ì‹¬ê¸°ì—… í”¼ë“œë°±
 	@RequestMapping(value = "/company")
 	public String edu_company(Model model) {
 		List<Map<String, Object>> list = dao.fback_CompanyList();
@@ -98,7 +98,7 @@ public class FeedBackController {
 	// ---- Edu_Company.jsp end ----
 	
 	// ---- Edu_Company_Write.jsp start ----
-	// ÇĞ»ı°ü¸® °ü½É±â¾÷ ÇÇµå¹é »ó¼¼º¸±â
+	// í•™ìƒê´€ë¦¬ ê´€ì‹¬ê¸°ì—… í”¼ë“œë°± ìƒì„¸ë³´ê¸°
 	@RequestMapping(value = "/company_write")
 	public String edu_company_write(Model model, int cpfnum) {
 		String content = dao.fback_contentView(cpfnum);
@@ -107,7 +107,7 @@ public class FeedBackController {
 		return "Edu_Company_Write";
 	}
 	
-	// ÇÇµå¹é¿¡ ´ëÇÑ ³»¿ë ¾÷·Îµå ÈÄ ÇĞ»ı°ü¸® °ü½É±â¾÷ ¸®½ºÆ®·Î ³Ñ¾î°¡´Â ÇÔ¼ö
+	// í”¼ë“œë°±ì— ëŒ€í•œ ë‚´ìš© ì—…ë¡œë“œ í›„ í•™ìƒê´€ë¦¬ ê´€ì‹¬ê¸°ì—… ë¦¬ìŠ¤íŠ¸ë¡œ ë„˜ì–´ê°€ëŠ” í•¨ìˆ˜
 	@RequestMapping(value = "/company_upload")
 	public String edu_company_upload(Model model, int cpfnum, String content) {
 		CpfeedVO cpfvo = new CpfeedVO();
@@ -119,45 +119,45 @@ public class FeedBackController {
 	// ---- Edu_Company_Write.jsp end ----
 	
 	
-	// ---- ÆÄÀÏ ´Ù¿î·Îµå ¸Ş¼­µå Start ----
-	// ¹öÆÛÀÇ Å©±â ¼³Á¤
+	// ---- íŒŒì¼ ë‹¤ìš´ë¡œë“œ ë©”ì„œë“œ Start ----
+	// ë²„í¼ì˜ í¬ê¸° ì„¤ì •
 	private static final int BUFFER_SIZE = 4096;
 
-	// ÆÄÀÏ ´Ù¿î·Îµå
+	// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 	@RequestMapping(value = "/fileDown")
 	public void fileDown(@RequestParam("fileName") String fileName, HttpSession session, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
-		// applicationContext °´Ã¼¸¦ request·Î ºÎÅÍ ¾ò¾î³¿
+		// applicationContext ê°ì²´ë¥¼ requestë¡œ ë¶€í„° ì–»ì–´ëƒ„
 		ServletContext context = request.getServletContext();
-		// ¾÷·ÎµåµÈ °æ·Î ¾òÀ½
+		// ì—…ë¡œë“œëœ ê²½ë¡œ ì–»ìŒ
 		String path = session.getServletContext().getRealPath("/resources/upload/") + fileName;
 		System.out.println(path);
-		// ±× °æ·Î·Î ÆÄÀÏ °´Ã¼¸¦ »ı¼º
+		// ê·¸ ê²½ë¡œë¡œ íŒŒì¼ ê°ì²´ë¥¼ ìƒì„±
 		File downloadFile = new File(path);
-		// FileInputStream ½ºÆ®¸²À¸·Î ÀĞ¾î¿È
+		// FileInputStream ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œ ì½ì–´ì˜´
 		FileInputStream fi = new FileInputStream(downloadFile);
-		// ¿äÃ» °´Ã¼·ÎºÎÅÍ ¿¬°áµÉ ºê¶ó¿ìÀúÀÇ ¸¶ÀÓÅ¸ÀÔÀ» ¾ò¾î³¿
+		// ìš”ì²­ ê°ì²´ë¡œë¶€í„° ì—°ê²°ë  ë¸Œë¼ìš°ì €ì˜ ë§ˆì„íƒ€ì…ì„ ì–»ì–´ëƒ„
 		String mimeType = context.getMimeType(path);
 		System.out.println(mimeType);
-		// ¸¸¾à ¸¶ÀÓÅ¸ÀÔ°ªÀÌ ¾øÀ¸¸é ±×³É µğÆúÆ®·Î ½ºÆ®¸²À¸·Î ¿¬°á
+		// ë§Œì•½ ë§ˆì„íƒ€ì…ê°’ì´ ì—†ìœ¼ë©´ ê·¸ëƒ¥ ë””í´íŠ¸ë¡œ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œ ì—°ê²°
 		if (mimeType == null) {
 			mimeType = "application/octet-stream";
 		}
-		// ÁöÁ¤µÈ ¸¶ÀÓÅ¸ÀÔ ¼¼ÆÃ
+		// ì§€ì •ëœ ë§ˆì„íƒ€ì… ì„¸íŒ…
 		response.setContentType(mimeType);
-		// ´Ù¿î·Îµå µÉ ÆÄÀÏÀÇ ±æÀÌ ¼¼ÆÃ
+		// ë‹¤ìš´ë¡œë“œ ë  íŒŒì¼ì˜ ê¸¸ì´ ì„¸íŒ…
 		response.setContentLength((int) downloadFile.length());
-		// ´Ù¿î·Îµå TypeÀ» ¼³Á¤ÇÔ
+		// ë‹¤ìš´ë¡œë“œ Typeì„ ì„¤ì •í•¨
 		String headerKey = "Content-Disposition";
 		String headerValue = String.format("attachment; filename=\"%s\"", downloadFile.getName());
 		System.out.println(headerValue);
-		// À§ÀÇ ´Ù¿î·Îµå Å¸ÀÔÀÇ Á¤º¸¸¦ ÇØ´õ·Î ¼³Á¤
+		// ìœ„ì˜ ë‹¤ìš´ë¡œë“œ íƒ€ì…ì˜ ì •ë³´ë¥¼ í•´ë”ë¡œ ì„¤ì •
 		response.setHeader(headerKey, headerValue);
-		// ºê¶ó¿ìÀú·ÎºÎÅÍ ½ºÆ®¸²À» ¿¬°á
+		// ë¸Œë¼ìš°ì €ë¡œë¶€í„° ìŠ¤íŠ¸ë¦¼ì„ ì—°ê²°
 		OutputStream outStream = response.getOutputStream();
-		// ¹öÆÛ¸¦ ³¢¿ö¼­ ºü¸£°Ô Àü´Ş ¸ñÀû
+		// ë²„í¼ë¥¼ ë¼ì›Œì„œ ë¹ ë¥´ê²Œ ì „ë‹¬ ëª©ì 
 		byte[] buffer = new byte[BUFFER_SIZE];
-		// ÀÌÁ¦ ºê¶ó¿ìÀú·Î º¸³»°í, ÀÚ¿ø ´İÀ¸¸é ³¡
+		// ì´ì œ ë¸Œë¼ìš°ì €ë¡œ ë³´ë‚´ê³ , ìì› ë‹«ìœ¼ë©´ ë
 		int bytesRead = -1;
 		while ((bytesRead = fi.read(buffer)) != -1) {
 			outStream.write(buffer, 0, bytesRead);
@@ -165,6 +165,6 @@ public class FeedBackController {
 		fi.close();
 		outStream.close();
 	}
-	// ---- ÆÄÀÏ ´Ù¿î·Îµå ¸Ş¼­µå End ----
+	// ---- íŒŒì¼ ë‹¤ìš´ë¡œë“œ ë©”ì„œë“œ End ----
 
 }

@@ -2,7 +2,14 @@ package finalproj.dto;
 
 public class FavlistVO {
 	private int snum;
-	private String cpnum;
+	private String cpnum,fmemo;
+	
+	public String getFmemo() {
+		return fmemo;
+	}
+	public void setFmemo(String fmemo) {
+		this.fmemo = fmemo;
+	}
 	/**
 	 * @return the snum
 	 */

@@ -4,7 +4,7 @@ public class TboardVO {
 	private int tbnum;
 	private int tnum;
 	private String tbtitle;
-	private String tvdate;
+	private String tbdate;
 	private String tbfile;
 	private String tbcontent;
 	/**
@@ -46,14 +46,14 @@ public class TboardVO {
 	/**
 	 * @return the tvdate
 	 */
-	public String getTvdate() {
-		return tvdate;
+	public String getTbdate() {
+		return tbdate;
 	}
 	/**
 	 * @param tvdate the tvdate to set
 	 */
-	public void setTvdate(String tvdate) {
-		this.tvdate = tvdate;
+	public void setTvdate(String tbdate) {
+		this.tbdate = tbdate;
 	}
 	/**
 	 * @return the tbfile

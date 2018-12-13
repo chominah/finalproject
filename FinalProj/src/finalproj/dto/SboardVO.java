@@ -1,8 +1,16 @@
 package finalproj.dto;
 
 public class SboardVO {
-	private int bnum,snum;
+	private int bnum, snum, groupno;
 	private String btitle, bdate, bfile, bcontent;
+
+	public int getGroupno() {
+		return groupno;
+	}
+
+	public void setGroupno(int groupno) {
+		this.groupno = groupno;
+	}
 
 	public int getBnum() {
 		return bnum;

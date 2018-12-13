@@ -1,7 +1,7 @@
 package finalproj.dto;
 
 public class AdminVO {
-	private int adnum;
+	private int adnum,rolnum;
 	private String adname;
 	private String adbirth;
 	private String admail;
@@ -10,6 +10,13 @@ public class AdminVO {
 	private String adgender;
 	private String adid;
 	private String adpwd;
+	
+	public int getRolnum() {
+		return rolnum;
+	}
+	public void setRolnum(int rolnum) {
+		this.rolnum = rolnum;
+	}
 	/**
 	 * @return the adnum
 	 */

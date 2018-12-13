@@ -23,6 +23,7 @@
        <typeAlias type="finalproj.dto.TeacherVO" alias="tvo"/>
        <typeAlias type="finalproj.dto.Teacher_LoggerVO" alias="tlogvo"/>
        <typeAlias type="finalproj.dto.TboardVO" alias="tbvo"/>
-       
+       <typeAlias type="finalproj.dto.StgroupVO" alias="stvo"/>
+       <typeAlias type="finalproj.dto.InclinationVO" alias="invo"/>
     </typeAliases>
  </configuration>

@@ -7,6 +7,27 @@ public class TeacherVO {
 	private String tmail;
 	private String taddr;
 	private String tphone;
+	private int rolnum;
+	private String tgender;
+	private String tid, tpwd;	
+	private TboardVO tboard;
+	
+
+	public TboardVO getTboard() {
+		return tboard;
+	}
+
+	public void setTboard(TboardVO tboard) {
+		this.tboard = tboard;
+	}
+
+	public int getRolnum() {
+		return rolnum;
+	}
+
+	public void setRolnum(int rolnum) {
+		this.rolnum = rolnum;
+	}
 
 	public int getTnum() {
 		return tnum;
@@ -80,6 +101,5 @@ public class TeacherVO {
 		this.tpwd = tpwd;
 	}
 
-	private String tgender;
-	private String tid, tpwd;
+
 }

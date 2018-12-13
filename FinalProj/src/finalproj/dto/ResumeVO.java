@@ -1,8 +1,15 @@
 package finalproj.dto;
 
 public class ResumeVO {
-	private int rnum,snum;
+	private int rnum,snum,rcnum;
 	private String rfile,rdate;
+	
+	public int getRcnum() {
+		return rcnum;
+	}
+	public void setRcnum(int rcnum) {
+		this.rcnum = rcnum;
+	}
 	public int getRnum() {
 		return rnum;
 	}

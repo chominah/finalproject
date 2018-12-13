@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>Main.jsp</title>
 </head>
 <body>
 	Main
+	<li><a href="comlistview">comlistview로 이동</a></li>
 </body>
 </html>

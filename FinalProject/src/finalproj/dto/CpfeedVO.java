@@ -5,7 +5,20 @@ public class CpfeedVO {
 	private int snum;
 	private String cpfcontent;
 	private String cpfdate;
-	private String cpnum;
+	private String cpnum,cpfmemo,cpffile;
+	
+	public String getCpfmemo() {
+		return cpfmemo;
+	}
+	public void setCpfmemo(String cpfmemo) {
+		this.cpfmemo = cpfmemo;
+	}
+	public String getCpffile() {
+		return cpffile;
+	}
+	public void setCpffile(String cpffile) {
+		this.cpffile = cpffile;
+	}
 	/**
 	 * @return the cpfnum
 	 */
