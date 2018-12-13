@@ -32,7 +32,7 @@ public class ComponyController {
 	// main page 이동 --> 추후 삭제 예정
 	@RequestMapping(value = "/")
 	public String home() {
-		System.out.println("main");
+		System.out.println("main!!!");
 
 		return "my_main";
 	}
