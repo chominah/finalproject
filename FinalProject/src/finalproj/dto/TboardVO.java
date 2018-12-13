@@ -7,6 +7,15 @@ public class TboardVO {
 	private String tbdate;
 	private String tbfile;
 	private String tbcontent;
+	private int cnum;
+	
+	public int getCnum() {
+		return cnum;
+	}
+	public void setCnum(int cnum) {
+		this.cnum = cnum;
+	}
+
 	/**
 	 * @return the tbnum
 	 */
@@ -44,15 +53,15 @@ public class TboardVO {
 		this.tbtitle = tbtitle;
 	}
 	/**
-	 * @return the tvdate
+	 * @return the tbdate
 	 */
 	public String getTbdate() {
 		return tbdate;
 	}
 	/**
-	 * @param tvdate the tvdate to set
+	 * @param tvdate the tbdate to set
 	 */
-	public void setTvdate(String tbdate) {
+	public void setTbdate(String tbdate) {
 		this.tbdate = tbdate;
 	}
 	/**
