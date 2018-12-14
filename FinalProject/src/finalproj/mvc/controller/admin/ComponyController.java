@@ -25,14 +25,6 @@ public class ComponyController {
 	@Autowired
 	private AdminDaoInter adminDaoInter;
 
-	// main page 이동 --> 추후 삭제 예정
-	@RequestMapping(value = "/")
-	public String home() {
-		System.out.println("main!!!");
-
-		return "my_main";
-	}
-
 	// 기업 리스트 뷰로 이동
 	@RequestMapping(value = "comlistview")
 	public String listview(Model m) {
