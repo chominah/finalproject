@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>comlistview.jsp</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<style>
-	
-</style>
-</head>
-<body>
+<div id="warp">
 	<div>
 		<div id="addcomfileform">
 			<form action="addExcel" method="post" enctype="multipart/form-data">
@@ -37,7 +27,7 @@
 				
 			</div>	
 			<div>
-				<img id="addbuttonimg" src="resources/imgfile/kjh_addimg.png" alt="입력폼 추가"  width="25" height="25">
+				<img id="addbuttonimg" src="resources/img/kjh_addimg.png" alt="입력폼 추가"  width="25" height="25">
 			</div>			
 			<div>
 				<input type="submit" value="추가"/>
@@ -62,7 +52,7 @@
 			</div>
 		</div>
 	</div>
-	
+	</div>
 <script>
 	$(document).ready(function(){
 		var total = 100;
@@ -144,14 +134,6 @@
 					}
 				}
 			});
-		}
-		
-		
-		
+		}		
 	});
-	
-	
-
 </script>
-</body>
-</html>

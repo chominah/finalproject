@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Main.jsp</title>
-</head>
-<body>
+
+<div id="wrap">
 	Main
 	<li><a href="comlistview">comlistview로 이동</a></li>
-</body>
-</html>
+	<li><a href="schedualForm">schedual로 이동</a></li>
+</div>
