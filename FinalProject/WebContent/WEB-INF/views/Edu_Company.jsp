@@ -14,35 +14,34 @@
 	display: grid;
 	grid-template-areas: 'left left left left right right';
 	grid-gap: 10px;
-	background-color: #2196F3;
 	padding: 10px;
 	grid-gap: 10px;
 }
 
 .grid-container_jhp>div {
-	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	padding: 20px 0;
 	font-size: 30px;
 }
 </style>
+
 <div class="grid-container_jhp">
 	<div class="item1_jhp">
 		<h1>학생관리_관심기업 피드백</h1>
-		<table>
+		<table class="table table-hover">
 			<thead>
-				<tr>
-					<td>피드백 요청 날짜</td>
-					<td>기업 이름</td>
-					<td>강좌 이름</td>
-					<td>기수</td>
-					<td>학생 이름</td>
+				<tr class="table-primary">
+					<td scope="col">피드백 요청 날짜</td>
+					<td scope="col">기업 이름</td>
+					<td scope="col">강좌 이름</td>
+					<td scope="col">기수</td>
+					<td scope="col">학생 이름</td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="e" items="${list}">
-					<tr id="${e.cpfnum}" class="sel">
-						<td>${e.cpfdate}</td>
+					<tr id="${e.cpfnum}" class="sel table-light">
+						<td scope="row">${e.cpfdate}</td>
 						<td>${e.cpname}</td>
 						<td>${e.cname}</td>
 						<td>${e.cordinal}</td>
@@ -69,7 +68,7 @@
 			$.ajax({
 				url : 'feedback/company_content?cpfnum=' + num,
 				type : 'POST',
-				dataType: 'json',
+				dataType : 'json',
 				cache : false,
 				success : function(data) {
 					$("#content").html(data.content);

@@ -14,13 +14,11 @@
 	display: grid;
 	grid-template-areas: 'left left left left right right';
 	grid-gap: 10px;
-	background-color: #2196F3;
 	padding: 10px;
 	grid-gap: 10px;
 }
 
 .grid-container_jhp>div {
-	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	padding: 20px 0;
 	font-size: 30px;
@@ -29,9 +27,9 @@
 <div class="grid-container_jhp">
 	<div class="item1_jhp">
 		<h1>학생관리_이력서&포트폴리오 피드백</h1>
-		<table>
+		<table class="table table-hover">
 			<thead>
-				<tr>
+				<tr class="table-primary">
 					<td>학생 이름</td>
 					<td>이메일</td>
 					<td>폰 번호</td>
@@ -41,7 +39,7 @@
 			</thead>
 			<tbody>
 				<c:forEach var="e" items="${list}">
-					<tr id="${e.snum}" class="sel">
+					<tr id="${e.snum}" class="sel table-light">
 						<td>${e.sname}</td>
 						<td>${e.smail}</td>
 						<td>${e.sphone}</td>
@@ -54,12 +52,11 @@
 	</div>
 	<div class="item2_jhp">
 		<h1>학생 이력서&포트폴리오 리스트</h1>
-		<table>
+		<table class="table table-hover">
 	<thead>
-		<tr>
-			<td>이력서&포트폴리오</td>
+		<tr class="table-primary">
+			<td>파일</td>
 			<td>입력일</td>
-			<td>파일 다운로드</td>
 			<td>파일 업로드</td>
 		</tr>
 	</thead>
@@ -85,10 +82,9 @@
 					$.each(data,function(idx,key){
 						/* rnum,snum,rfile,rdate */
 						console.log(idx+":"+key.rnum);
-						tag +="<tr id="+key.rnum+" class='sel'>";
-						tag +="<td>"+key.rfile+"</td>";
+						tag +="<tr id="+key.rnum+" class='sel table-light'>";
+						tag +="<td><a href='fileDown?fileName="+key.rfile+"'>"+key.rfile+"</a></td>";
 						tag +="<td>"+key.rdate+"</td>";
-						tag +="<td><a href='fileDown?fileName="+key.rfile+"' style='color: black;'>down</a></td>";
 						tag +="<td><form action='rfile_upload' method='post' enctype='multipart/form-data'>";
 						tag +="<input type='hidden' id='rnum' name='rnum' value='"+key.rnum+"'>";
 						tag +="<input type='file' id='mfile' name='mfile'>";
