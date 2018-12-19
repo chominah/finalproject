@@ -695,6 +695,16 @@ alter table cplist add cparrears varchar2(9);
 
 alter table cplist modify cpname varchar2(64);
 alter table cplist modify cploc varchar2(200);
+
+-----------------------------------------------
+
+alter table teacher add taddr2 varchar2(128);
+alter table teacher add tpost varchar2(128);
+alter table teacher rename COLUMN taddr to taddr1;
+
+alter table admin add adaddr2 varchar2(128);
+alter table admin add adpost varchar2(128);
+alter table admin rename COLUMN adaddr to adaddr1;
 </pre>
 
 # DB 더미 데이터
