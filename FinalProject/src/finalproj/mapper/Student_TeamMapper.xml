@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="student_teamboard">
+
+<!-- teamboard_write -->
+<insert id="wirte" parameterType="sbvo">
+	insert
+	into sboard values
+	(
+	sboard_seq.nextVal,#{snum},#{btitle},sysdate, #{bfile}, #{bcontent}
+	)
+</insert>
+
+<!-- teamboard -->
+  <resultMap type="svo" id="student_sboardResult">
+  	<id property="snum" column="snum" javaType="int"/>
+  	<result property="sname" column="sname"/>
+  	<collection property="sboard" javaType="java.util.List"
+  				resultMap="sboardResult" ofType="sbvo"/>
+  	</resultMap>
+  	
+  <resultMap type="sbvo" id="sboardResult">
+ 		 <id property="bnum" column="bnum" javaType="int"/>
+  		<result property="snum" column="snum"/>
+  		<result property="btitle" column="btitle"/>
+  		<result property="bdate" column="bdate"/>
+  </resultMap>
+
+  <select id="teamlist" resultMap="student_sboardResult">
+  		select sb.bnum bnum, sb.snum snum, sb.btitle btitle, TO_CHAR(sb.bdate,'yyyy.MM.dd') bdate, s.sname sname
+  		from sboard sb, student s
+  		where  s.snum= sb.snum
+  </select>
+  
+  <!-- teamboard_detail -->
+  <resultMap type="svo" id="student_sboard_detailResult">
+  	<id property="snum" column="snum" javaType="int"/>
+  	<result property="sname" column="sname"/>
+  	<association property="sboard_detail" column="snum" javaType="sbvo">
+  		<id property="bnum" column="bnum" javaType="int"/>
+  		<result property="snum" column="snum"/>
+  		<result property="btitle" column="btitle"/>
+  		<result property="bdate" column="bdate"/>
+  		<result property="bfile" column="bfile"/>
+  		<result property="bcontent" column="bcontent"/>
+  	</association>
+  </resultMap>
+  <select id="teamboard_detail" parameterType="int" resultMap="student_sboard_detailResult">
+  	select sb.bnum bnum, sb.snum snum, sb.btitle btitle, TO_CHAR(sb.bdate,'yyyy.MM.dd') bdate,
+  	 sb.bfile bfile, sb.bcontent bcontent, s.sname sname
+  	from sboard sb, student s
+  	where sb.snum = s.snum and sb.bnum=#{num}
+  </select>
+  
+   <!-- teamboard_detail_Excel -->
+ <select id="ExcelList" resultType="sbvo">
+  	select * from sboard
+  </select>
+ 
+  <!-- teamboard_delete 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from sboard where bnum=#{num}
+	</delete>
+	
+	<!-- teamboard_modify 수정 -->
+	<update id="modify" parameterType="sbvo">
+		update sboard set btitle=#{btitle}, bdate=#{bdate}, bfile=#{bfile}, bcontent=#{bcontent} where bnum=#{bnum}
+	</update>
+</mapper>

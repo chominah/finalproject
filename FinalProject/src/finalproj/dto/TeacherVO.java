@@ -5,7 +5,9 @@ public class TeacherVO {
 	private String tname;
 	private String tbirth;
 	private String tmail;
-	private String taddr;
+	private String taddr1;
+	private String taddr2;
+	private String tpost;
 	private String tphone;
 	private int rolnum;
 	private String tgender;
@@ -61,12 +63,28 @@ public class TeacherVO {
 		this.tmail = tmail;
 	}
 
-	public String getTaddr() {
-		return taddr;
+	public String getTaddr1() {
+		return taddr1;
 	}
 
-	public void setTaddr(String taddr) {
-		this.taddr = taddr;
+	public void setTaddr1(String taddr1) {
+		this.taddr1 = taddr1;
+	}
+
+	public String getTaddr2() {
+		return taddr2;
+	}
+
+	public void setTaddr2(String taddr2) {
+		this.taddr2 = taddr2;
+	}
+
+	public String getTpost() {
+		return tpost;
+	}
+
+	public void setTpost(String tpost) {
+		this.tpost = tpost;
 	}
 
 	public String getTphone() {

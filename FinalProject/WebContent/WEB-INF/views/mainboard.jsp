@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>teamboard.jsp</title>
+<title>mainboard.jsp</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="resources/js/default.js"></script>
 </head>
+<body>
 	<div id="wrap">
 		<fieldset>
-			<legend>teamboard</legend>
+			<legend>mainboard</legend>
 			<table class="table table-hover">
 				<thead>
 					<tr class="table-primary">
@@ -24,23 +25,22 @@
 				<tfoot>
 					<tr>
 						<td colspan="4">
-						<button class="btn btn-outline-primary"><a href="teamboard_write_btn">게시글작성</a></button>
 						</td>
 					</tr>
 				</tfoot>
 				<tbody>
-						<% int i = 1; %>
-					<c:forEach var="e" items="${list }">
-						<c:forEach var="f" items="${e.sboard }">
-							<tr class="table-light">
-								<td><%=i++%></td>
-								<td><a href="javascript:goConfirmUrl('teamboard_detail?',${f.bnum})" class="card-link">${f.btitle}</a></td>
-								<td>${e.sname}</td>
-								<td>${f.bdate}</td>
-							</tr>
-						</c:forEach>
+				<% int i = 1; %>
+					<c:forEach var="e" items="${list}">
+						<tr class="table-light">
+							<td><%=i++%></td>
+							<td><a href="javascript:goConfirmUrl('mainboard_detail?',${e.tboard.tbnum})" class="card-link" >${e.tboard.tbtitle}</a></td>
+							<td>${e.tname }</td>
+							<td>${e.tboard.tbdate }</td>
+						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</fieldset>
 	</div>
+</body>
+</html>

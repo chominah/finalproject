@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin_Join">
+
+<!--  관리자 로그인 -->
+  <select id="loginChk" parameterType="advo" resultType="advo">
+		select adid, adname, adnum from admin
+		where adid=#{adid} and adpwd=#{adpwd}
+	</select>
+	
+<!-- 관리자 회원가입 -->
+  <insert id="join" parameterType="advo">
+  insert into admin
+  values
+  (admin_seq.nextVal,#{adname},#{adbirth},#{admail},#{adaddr1}, 
+  #{adphone},#{adgender},#{adid},
+  #{adpwd},2,#{adaddr2},#{adpost}
+  )
+  </insert>
+  
+  <!--관리자 아이디 중복확인 -->
+  <select id="idChk" parameterType="String" resultType="int">
+  select count(*) cnt from admin where adid=#{adid}
+  </select>
+  
+  <!--관리자_내정보 보기 -->
+  <select id="myInfo" parameterType="int" resultType="advo">
+  	select adname, to_char(adbirth, 'yyyy-MM-dd') adbirth, admail, adaddr1, adphone, adgender, adid, adpwd, adaddr2, adpost
+  	from admin
+  	where adnum=1
+  </select> 
+  
+  <!-- 관리자_ 내 정보 수정  -->
+<update id="myInfo_modify" parameterType="advo">
+		update 
+		admin 
+		set
+		adname=#{adname}, adbirth=#{adbirth},
+		admail=#{admail}, adaddr1=#{adaddr1}, adphone=#{adphone}, 
+		adgender=#{adgender}, adid=#{adid}, adpwd=#{adpwd}, adaddr2=#{adaddr2}, adpost=#{adpost}
+		where adnum=1 and rolnum=2
+</update>
+  
+</mapper>
+

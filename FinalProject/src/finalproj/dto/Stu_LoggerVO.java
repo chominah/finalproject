@@ -1,8 +1,17 @@
 package finalproj.dto;
 
 public class Stu_LoggerVO {
-	private int logno, rnum, snum;
+	private int logno, rnum, snum, stat;
 	private String logdate;
+
+	
+	public int getStat() {
+		return stat;
+	}
+
+	public void setStat(int stat) {
+		this.stat = stat;
+	}
 
 	public int getLogno() {
 		return logno;

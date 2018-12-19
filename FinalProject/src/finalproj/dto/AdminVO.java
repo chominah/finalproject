@@ -5,7 +5,9 @@ public class AdminVO {
 	private String adname;
 	private String adbirth;
 	private String admail;
-	private String adaddr;
+	private String adaddr1;
+	private String adaddr2;
+	private String adpost;
 	private String adphone;
 	private String adgender;
 	private String adid;
@@ -65,17 +67,25 @@ public class AdminVO {
 	public void setAdmail(String admail) {
 		this.admail = admail;
 	}
-	/**
-	 * @return the adaddr
-	 */
-	public String getAdaddr() {
-		return adaddr;
+	
+	
+	public String getAdaddr1() {
+		return adaddr1;
 	}
-	/**
-	 * @param adaddr the adaddr to set
-	 */
-	public void setAdaddr(String adaddr) {
-		this.adaddr = adaddr;
+	public void setAdaddr1(String adaddr1) {
+		this.adaddr1 = adaddr1;
+	}
+	public String getAdaddr2() {
+		return adaddr2;
+	}
+	public void setAdaddr2(String adaddr2) {
+		this.adaddr2 = adaddr2;
+	}
+	public String getAdpost() {
+		return adpost;
+	}
+	public void setAdpost(String adpost) {
+		this.adpost = adpost;
 	}
 	/**
 	 * @return the adphone

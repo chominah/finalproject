@@ -1,5 +1,7 @@
 package finalproj.dto;
 
+import java.util.List;
+
 public class ClassVO {
 	private int cnum;
 	private int cordinal;
@@ -8,7 +10,21 @@ public class ClassVO {
 	private String cname;
 	private String cbegin;
 	private String cend;
+	private List<TboardVO> tboard;
+	private TboardVO tboard_detail;
 	
+	public TboardVO getTboard_detail() {
+		return tboard_detail;
+	}
+	public void setTboard_detail(TboardVO tboard_detail) {
+		this.tboard_detail = tboard_detail;
+	}
+	public List<TboardVO> getTboard() {
+		return tboard;
+	}
+	public void setTboard(List<TboardVO> tboard) {
+		this.tboard = tboard;
+	}
 	public int getTnum() {
 		return tnum;
 	}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="Student_LoginLogger">
+  <!-- 학생 로거 -->
+  
+  	<insert id="login" parameterType="slogvo">
+  		insert into stu_logger values(
+  			stu_logger_seq.nextVal,sysdate,3,#{snum},1
+  		)
+  	</insert>
+  	
+  	<insert id="logout" parameterType="slogvo">
+  		insert into Stu_Logger values(
+  			stu_logger_seq.nextVal,sysdate,3,#{snum},0
+  		)
+  	</insert>
+  </mapper>

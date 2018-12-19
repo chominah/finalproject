@@ -5,6 +5,17 @@ public class Teacher_LoggerVO {
 	private String logdate;
 	private int rnum;
 	private int tnum;
+	private int stat;
+	
+	
+
+	public int getStat() {
+		return stat;
+	}
+
+	public void setStat(int stat) {
+		this.stat = stat;
+	}
 
 	public int getLogno() {
 		return logno;

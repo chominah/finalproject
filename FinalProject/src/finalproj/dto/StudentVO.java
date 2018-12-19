@@ -4,7 +4,8 @@ import java.util.List;
 
 public class StudentVO {
 	private int snum, cnum, scert, rolnum;
-	private String sname, sbirth, smail, saddr, sphone, smajor, sgender, sid, spwd, keyword;
+	private String sname, sbirth, smail, saddr1, sphone, smajor, sgender, sid, spwd, keyword;
+	private String saddr2, spost;
 	private SboardVO sboard_detail;
 	private List<SboardVO> sboard;
 
@@ -88,12 +89,29 @@ public class StudentVO {
 		this.smail = smail;
 	}
 
-	public String getSaddr() {
-		return saddr;
+
+	public String getSaddr1() {
+		return saddr1;
 	}
 
-	public void setSaddr(String saddr) {
-		this.saddr = saddr;
+	public void setSaddr1(String saddr1) {
+		this.saddr1 = saddr1;
+	}
+
+	public String getSaddr2() {
+		return saddr2;
+	}
+
+	public void setSaddr2(String saddr2) {
+		this.saddr2 = saddr2;
+	}
+
+	public String getSpost() {
+		return spost;
+	}
+
+	public void setSpost(String spost) {
+		this.spost = spost;
 	}
 
 	public String getSphone() {

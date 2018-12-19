@@ -5,6 +5,15 @@ public class Admin_LoggerVO {
 	private int rnum;
 	private int adnum;
 	private String logdate;
+	private int stat;
+	
+	
+	public int getStat() {
+		return stat;
+	}
+	public void setStat(int stat) {
+		this.stat = stat;
+	}
 	/**
 	 * @return the logno
 	 */
