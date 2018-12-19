@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 	<style>
@@ -38,7 +37,3 @@ function logout(){
 	
   
 </ul>
-=======
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
->>>>>>> branch 'master' of https://github.com/chominah/finalproject.git
