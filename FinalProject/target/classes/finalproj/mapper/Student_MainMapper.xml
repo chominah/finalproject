@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="student_main">
+  
+  <!-- mainboard 쿼리문 -->
+  <resultMap type="tvo" id="teacher_tboardResult">
+  	<id property="tnum" column="tnum" javaType="int"/>
+  	<result property="tname" column="tname"/>
+  	<association property="tboard" column="tnum" javaType="tbvo">
+  		<id property="tbnum" column="tbnum" javaType="int"/>
+  		<result property="tnum" column="tnum"/>
+  		<result property="tbtitle" column="tbtitle"/>
+  		<result property="tbdate" column="tbdate"/>
+  	</association>
+  </resultMap>
+  <select id="mainlist" resultMap="teacher_tboardResult">
+  		select tb.tbnum tbnum,tb.tnum tnum, tb.tbtitle tbtitle, TO_CHAR(tb.tbdate,'yyyy.MM.dd') tbdate, te.tname tname
+  		from tboard tb, teacher te
+  		where tb.tnum = te.tnum
+  </select>
+  
+  <!-- mainboard_detail -->
+  <resultMap type="tvo" id="teacher_tboard_detailResult">
+  	<id property="tnum" column="tnum" javaType="int"/>
+  	<result property="tname" column="tname"/>
+  	<association property="tboard" column="tnum" javaType="tbvo">
+  		<id property="tbnum" column="tnum" javaType="int"/>
+  		<result property="tnum" column="tnum"/>
+  		<result property="tbtitle" column="tbtitle"/>
+  		<result property="tbdate" column="tbdate"/>
+  		<result property="tbfile" column="tbfile"/>
+  		<result property="tbcontent" column="tbcontent"/>
+  	</association>
+  </resultMap>
+  <select id="mainboard_detail" parameterType="int" resultMap="teacher_tboard_detailResult">
+  	select tb.tnum tnum, tb.tbnum tbnum, tb.tbtitle tbtitle, TO_CHAR(tb.tbdate,'yyyy.MM.dd') tbdate,
+  	 tb.tbfile tbfile, tb.tbcontent tbcontent, te.tname tname
+  	from tboard tb, teacher te
+  	where tb.tnum = te.tnum and tb.tbnum=#{num}
+  </select>
+  
+  <!-- mainboard_detail_Excel -->
+ <select id="ExcelList" resultType="tbvo">
+  	select * from tboard
+  </select>
+  </mapper>

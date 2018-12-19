@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="student">
+	
+	<!-- 학생 회원가입 -->
+  <insert id="join" parameterType="svo">
+  insert into student 
+  values
+  (snum_seq.nextVal,#{sname},#{sbirth},#{smail},#{saddr1}, 
+  #{sphone},#{smajor},#{sgender},#{cnum},#{scert},#{keyword},#{sid},
+  #{spwd},3,#{saddr2},#{spost}
+  )
+  </insert>
+  <select id="scertname" resultType="int" parameterType="String">
+  select crnum from cert where crname=#{crname}
+  </select>
+  <select id="cname" resultType="int" parameterType="String">
+  select cnum from class where cname=#{cname}
+  </select>
+  
+  <select id="keywordAllList" resultType="keyvo">
+  select keyword from jobkeyword
+  </select>
+  <select id="certAllList" resultType="crvo">
+  select crname from cert
+  </select>
+  <select id="classAllList" resultType="cvo">
+  select cname from class
+  </select>
+  
+  <!-- 학생 내정보 보기 -->
+  <resultMap type="crvo" id="myInfoResult">
+  	<id property="crnum" column="crnum" javaType="int"/>
+  	<result property="crname" column="crname"/>
+  	<association property="myInfo" column="scert" javaType="svo">
+  		<id property="snum" column="snum" javaType="int"/>
+  		<result property="sname" column="sname"/>
+  		<result property="sbirth" column="sbirth"/>
+  		<result property="smail" column="smail"/>
+  		<result property="saddr1" column="saddr1"/>
+  		<result property="sphone" column="sphone"/>
+  		<result property="smajor" column="smajor"/>
+  		<result property="sgender" column="sgender"/>
+  		<result property="scert" column="scert"/>
+  		<result property="keyword" column="keyword"/>
+  		<result property="sid" column="sid"/>
+  		<result property="spwd" column="spwd"/>
+  		<result property="saddr2" column="saddr2"/>
+  		<result property="spost" column="spost"/>
+  	</association>
+  </resultMap>
+  <select id="myInfo" parameterType="int" resultMap="myInfoResult">
+  	select s.sname sname, to_char(s.sbirth, 'yyyy-MM-dd') sbirth, s.smail smail, s.saddr1 saddr1, s.sphone sphone, 
+  	s.smajor smajor, s.sgender sgender,s.scert scert,
+  	 s.keyword keyword, s.sid sid, s.spwd spwd, s.saddr2 saddr2,
+  	 s.spost spost,cr.crname crname
+  	from cert cr, student s
+  	where cr.crnum=s.scert and s.snum=9
+  </select>
+  
+<!-- 학생 내 정보 수정  -->
+<update id="myInfo_modify" parameterType="svo">
+		update 
+		student 
+		set
+		sname=#{sname}, sbirth=#{sbirth},
+		smail=#{smail}, saddr1=#{saddr1}, sphone=${sphone}, smajor=#{smajor}, 
+		sgender=#{sgender}, scert=${scert},
+		keyword=#{keyword}, sid=#{sid}, spwd=#{spwd}, saddr2=#{saddr2}, spost=#{spost}
+		where snum=9 and rolnum=3 
+</update>
+ <select id="modify_scertname" resultType="int" parameterType="String">
+  select crnum from cert where crname=#{crname}
+  </select>
+  
+   <!-- 학생 아이디 중복확인 -->
+  <select id="idChk" parameterType="String" resultType="int">
+  select count(*) cnt from student where sid=#{sid}
+  </select>
+  
+ <!-- 학생 로그인 -->
+  <select id="loginChk" parameterType="svo" resultType="svo">
+		select sid, sname, snum from student
+		where sid=#{sid} and spwd=#{spwd}
+	</select>
+  </mapper>

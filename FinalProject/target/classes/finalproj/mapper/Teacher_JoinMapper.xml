@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="teacher">
+	
+	<!--강사 회원가입 -->
+  <insert id="join" parameterType="tvo">
+  insert into teacher
+  values
+  (tnum_seq.nextVal,#{tname},#{tbirth},#{tmail},#{taddr1}, 
+  #{tphone},#{tgender},#{tid},
+  #{tpwd},1,#{taddr2},#{tpost}
+  )
+  </insert>
+  
+  
+  <!--강사_내정보 보기 -->
+  <select id="myInfo" parameterType="int" resultType="tvo">
+  	select tname, to_char(tbirth, 'yyyy-MM-dd') tbirth, tmail, taddr1, tphone, tgender, tid, tpwd, taddr2, tpost
+  	from teacher
+  	where tnum=2
+  </select> 
+  
+<!--강사_ 내 정보 수정  -->
+<update id="myInfo_modify" parameterType="tvo">
+		update 
+		teacher 
+		set
+		tname=#{tname}, tbirth=#{tbirth},
+		tmail=#{tmail}, taddr1=#{taddr1}, tphone=#{tphone}, 
+		tgender=#{tgender}, tid=#{tid}, tpwd=#{tpwd}, taddr2=#{taddr2}, tpost=#{tpost}
+		where tnum=2 and rolnum=1
+</update>
+  
+   <!-- 강사 아이디 중복확인 -->
+  <select id="idChk" parameterType="String" resultType="int">
+  select count(*) cnt from teacher where tid=#{tid}
+  </select>
+ 
+  </mapper>

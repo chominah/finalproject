@@ -3,6 +3,14 @@ package finalproj.dto;
 public class CertVO {
 	private int crnum,cnt;
 	private String crname;
+private StudentVO myInfo;
+	
+	public StudentVO getMyInfo() {
+		return myInfo;
+	}
+	public void setMyInfo(StudentVO myInfo) {
+		this.myInfo = myInfo;
+	}
 	
 	public int getCnt() {
 		return cnt;

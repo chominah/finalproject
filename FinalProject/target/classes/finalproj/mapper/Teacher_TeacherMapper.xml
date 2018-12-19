@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="teacher_teacherboard">
+
+<!-- teacherboard -->
+<resultMap type="cvo" id="teacherboardResult">
+	<id property="cnum" column="cnum" javaType="int"/>
+	<result property="cname" column="cname"/>
+	<collection property="tboard" javaType="java.util.List" resultMap="tboardResult" ofType="tbvo"/>
+</resultMap>
+<resultMap type="tbvo" id="tboardResult">
+		<id property="tbnum" column="tbnum" javaType="int"/>
+  		<result property="tnum" column="tnum" javaType="int"/>
+  		<result property="tbtitle" column="tbtitle"/>
+  		<result property="tbdate" column="tbdate"/>
+  		<result property="cnum" column="cnum"/>
+</resultMap>
+
+<select id="list" parameterType="int" resultMap="teacherboardResult">
+  		select tb.tbnum tbnum,tb.tnum tnum, tb.tbtitle tbtitle, TO_CHAR(tb.tbdate,'yyyy.MM.dd') tbdate, 
+  				tb.cnum cnum, c.cname cname
+  		from tboard tb, class c
+  		where tb.cnum = c.cnum and tb.tnum=#{tnum}
+  </select>
+  
+  <!-- teacherboard_write -->
+  <insert id="write" parameterType="tbvo">
+  	insert
+  	into tboard values
+  	(
+  	tboard_seq.nextVal,#{tnum},#{tbtitle},sysdate,#{tbfile},#{tbcontent},#{cnum}
+  	)
+  </insert>
+  
+  <!-- teacherboard_detail -->
+  <resultMap type="cvo" id="detailResult">
+  	<id property="cnum" column="cnum" javaType="int"/>
+  	<result property="cname" column="cname"/>
+  	<association property="tboard_detail" column="cnum" javaType="tbvo">
+  		<id property="tbnum" column="tbnum" javaType="int"/>
+  		<result property="tnum" column="tnum"/>
+  		<result property="tbtitle" column="tbtitle"/>
+  		<result property="tbdate" column="tbdate"/>
+  		<result property="tbfile" column="tbfile"/>
+  		<result property="tbcontent" column="tbcontent"/>
+  		<result property="cnum" column="cnum"/>
+  	</association>
+  </resultMap>
+  <select id="detail" parameterType="int" resultMap="detailResult">
+  	select tb.tbnum tbnum, tb.tnum tnum, tb.tbtitle tbtitle, TO_CHAR(tb.tbdate,'yyyy.MM.dd') tbdate,
+  	 tb.tbfile tbfile, tb.tbcontent tbcontent, tb.cnum cnum, c.cname cname
+  	from tboard tb, class c
+  	where tb.cnum = c.cnum and tb.tbnum=#{num} and tb.tnum=1
+  </select>
+
+ <!-- teacherboard_detail Excel -->
+  <select id="ExcelList" resultType="tbvo">
+  	select * from tboard
+  </select>
+  
+<!-- teacherboard_modify 수정 -->
+	<update id="modify" parameterType="tbvo">
+		update tboard set tbtitle=#{tbtitle}, tbdate=#{tbdate}, tbfile=#{tbfile}, tbcontent=#{tbcontent} 
+			where tbnum=#{tbnum}
+	</update>
+	
+ <!-- teacherboard_delete 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from tboard where tbnum=#{num}
+	</delete>
+	
+	<!--  로그인 -->
+  <select id="loginChk" parameterType="tvo" resultType="tvo">
+		select tid, tname, tnum from teacher
+		where tid=#{tid} and tpwd=#{tpwd}
+	</select>
+</mapper>
