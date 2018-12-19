@@ -32,6 +32,7 @@
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="1" />
 	</bean>
+<<<<<<< HEAD
 	
 	<!-- 스프링 메일 보내기 설정 -->
 	<bean id="mailSender"
@@ -52,4 +53,6 @@
 	</bean>
 	
 	
+=======
+>>>>>>> branch 'master' of https://github.com/chominah/finalproject.git
 </beans>
