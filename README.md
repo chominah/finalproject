@@ -661,7 +661,9 @@ ALTER TABLE tboard
       REFERENCES teacher (
          tnum
       );
-      
+
+
+----------------2018.12.19
 --1. 학생테이블
 alter table student add saddr2 varchar2(128);
 alter table student add spost varchar2(128);
