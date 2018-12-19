@@ -9,11 +9,15 @@
 	
 
 	 <select id="alllist" resultType="cpvo">
-		select cpnum, cpname, cploc, keyword , cplink
+		select cpname, cpnum, cpapl, ratnum , yearmoney, cprel, cpmajor, cpceo, cpphone, ceomail, cploc, cpagree, cparrears
 		from cplist
 	</select> 
 	
 	<insert id="addcplist" parameterType="cpvo">
 		insert into cplist values(#{cpnum},#{cpname},#{cploc},#{keyword},#{cplink})
+	</insert>
+	
+	<insert id="addcplist2" parameterType="cpvo">
+		insert into cplist values(#{cpnum},#{cpname},#{cploc},'none','null',#{ceomail},'none',#{cpapl},#{ratnum},#{yearmoney},#{cprel},#{cpmajor},#{cpceo},#{cpphone},#{cpagree},#{cparrears})
 	</insert>
 </mapper>

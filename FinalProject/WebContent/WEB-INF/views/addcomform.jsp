@@ -41,6 +41,10 @@
 			<button id="searchBtn" title="To saramin">°Ë»ö</button>
 		</div>
 		<table>
+			<colgroup>
+				<col width="30%">
+				<col width="70%">				
+			</colgroup>
 			<tbody id="saraminbody">
 			
 			</tbody>		

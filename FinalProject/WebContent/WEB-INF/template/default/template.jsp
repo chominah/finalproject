@@ -13,6 +13,53 @@
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="//cdn.ckeditor.com/4.4.7/full/ckeditor.js"></script>
 <!-- ckeditor.js  -->
+
+<!-- schedule style -->
+<style>
+	#schedual_body > tr > td{	
+		border: 1px solid gray;
+		width : 150px;
+		height: 200px;		
+	}
+	.div_schedule_day{
+		width : 150px;
+		height : 30px;
+		border : 1px solid black;
+		
+	}
+	.div_schedule_content{
+		font-size:7px;
+		text-align:left;
+		width : 150px;
+		height : 170px;
+	
+	}
+	.false_days{
+		background-color: gray;
+	}
+	#tbody_Target > tr > td{
+		border: 1px solid black;
+	}
+	.saramin_target > tr > td{
+		border-right: 1px solid black;
+		border-bottom: 1px solid gray;
+	}
+	#schedule_Target > thead > tr > th{
+		border: 1px solid black;
+		background-color: blue;
+		width: 150px;
+	}
+	
+	#schedule_Target > tbody > tr > td{
+		border: 1px solid black;
+	}
+	#schedule_Target{
+		border: 3px solid black;
+	}
+	
+</style>
+
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

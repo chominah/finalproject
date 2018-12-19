@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="schedule">
+	<select id="scheduleAllList" parameterType="String" resultType="shvo">
+		select to_char(shdate,'yyyy-mm-dd hh24:mi') shdate, shname, shloc, cnum
+		from schedule
+		where to_char(shdate,'yyyy-mm') = #{day}
+		order by 1
+	</select> 	
+	
+	<select id="scheduleDetailView" parameterType="String" resultType="shvo">
+		select to_char(shdate,'yyyy-mm-dd hh24:mi') shdate, shname, shloc, cnum
+		from schedule
+		where to_char(shdate,'yyyy-mm-dd') = #{day}
+		order by 1	
+	</select></mapper>
