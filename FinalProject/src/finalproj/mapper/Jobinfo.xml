@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="jobSearch">
+
+
+	<select id="keyword" parameterType="hashmap" resultType="cpvo">
+		select * from (select cpname,cploc from cplist where keyword like
+		'%'||#{keywordValue}||'%' order by cpnum) <![CDATA[where rownum < 4 and cploc=#{cplocValue}]]>
+         
+	</select>
+
+	<select id="keywordView" parameterType="hashmap" resultType="cpvo">
+		   select cpname,cploc,cpnum from (
+  		select rownum r_num, a.* from 
+  		(
+  			select * from cplist 
+            where keyword like '%'||#{keywordValue}||'%' and cploc=#{cplocValue}
+            order by cpnum desc
+  		) a
+  		) where r_num between #{begin} and #{end}
+		
+	</select>
+
+	<select id="class" resultType="cpvo">
+
+	</select>
+
+	<select id="classView" resultType="cpvo">
+
+	</select>
+
+	<select id="keywordmenu" resultType="keyvo">
+		select keyword from
+		jobkeyword
+	</select>
+
+	<select id="classmenu" resultType="cvo">
+		select cname from class
+	</select>
+
+	<select id="cploc" resultType="cpvo">
+		select distinct cploc from cplist
+	</select>
+
+    <select id="jobinfo" parameterType="int" resultType="cpvo">
+		select * from cplist where cpnum = #{cpnum}
+	</select> 
+
+    <select id="ceomail" parameterType="cpvo" resultType="cpvo">
+		select ceomail from cplist where ceomail = #{ceomail}
+	</select> 
+    
+    <select id="getCount" parameterType="hashmap" resultType="int">
+		select count(*) cnt from cplist where keyword like '%'||#{keywordValue}||'%' and cploc=#{cplocValue}
+	</select>
+    
+    
+</mapper>
