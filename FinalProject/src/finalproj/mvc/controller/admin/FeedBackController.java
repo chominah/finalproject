@@ -39,7 +39,7 @@ public class FeedBackController {
 
 		return "Edu_Resume";
 	}
-
+	// test
 	// resume 파일 업로드
 	// rnum(이력서 테이블의 pk)의 값과 mfile(이력서 테이블의 rfile)의 값을 파라메타 값으로 받아
 	// 지정된 경로에 파일을 업로드 시키고 DB에 저장하는 형식이다.
