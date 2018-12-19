@@ -661,6 +661,38 @@ ALTER TABLE tboard
       REFERENCES teacher (
          tnum
       );
+      
+--1. 학생테이블
+alter table student add saddr2 varchar2(128);
+alter table student add spost varchar2(128);
+alter table student rename COLUMN saddr to saddr1;
+
+--2. 학생 로거 테이블
+alter table stu_logger add stat number(1);
+
+--3. 관리자 로거 테이블
+alter table admin_logger add stat number(1);
+
+--4. 강사 로거 테이블
+alter table teacher_logger add stat number(1);
+
+--5. 시퀀스 생성
+create sequence stu_logger_seq increment by 1 start with 1;
+create sequence admin_logger_seq increment by 1 start with 1;
+create sequence teacher_logger_seq increment by 1 start with 1;
+
+alter table cplist add cpapl  varchar2(16);
+alter table cplist add ratnum number(3);
+alter table cplist add yearmoney number(12);
+alter table cplist add cprel varchar2(34);
+alter table cplist add cpmajor varchar2(128);
+alter table cplist add cpceo varchar2(32);
+alter table cplist add cpphone varchar2(50);
+alter table cplist add cpagree varchar2(9);
+alter table cplist add cparrears varchar2(9);
+
+alter table cplist modify cpname varchar2(64);
+alter table cplist modify cploc varchar2(200);
 </pre>
 
 # DB 더미 데이터
