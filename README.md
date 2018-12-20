@@ -935,4 +935,51 @@ insert into favlist(snum, cpnum) values(7, 4 );
 insert into favlist(snum, cpnum) values(8, 5 );
 insert into favlist(snum, cpnum) values(9, 6 );
 
+
+------------- 2018.12.20 더미 데이터
+insert into membertable values('andycandy','test00',1);
+insert into membertable values('sinminsoo','test00',1);
+insert into membertable values('lierkim','test00',1);
+insert into membertable values('dbsxjf2','test00',1);
+insert into membertable values('kanghw','test00',1);
+insert into membertable values('choikiller','test00',1);
+insert into membertable values('admindenti1','test00',1);
+insert into membertable values('admindenti2','test00',1);
+insert into membertable values('admindenti3','test00',1);
+insert into membertable values('admindenti4','test00',1);
+insert into membertable values('admindenti5','test00',1);
+insert into membertable values('admindenti6','test00',1);
+insert into membertable values('spring511','test00',1);
+insert into membertable values('teacher','test00',1);
+insert into membertable values('javeeee','test00',1);
+insert into membertable values('kostaaa','test00',1);
+insert into membertable values('javabook','test00',1);
+
+
+
+insert into role values('admindenti1','admin');
+insert into role values('admindenti2','admin');
+insert into role values('admindenti3','admin');
+insert into role values('admindenti4','admin');
+insert into role values('admindenti5','admin');
+insert into role values('admindenti6','admin');
+insert into role values('spring511','teacher');
+insert into role values('teacher','teacher');
+insert into role values('javeeee','teacher');
+insert into role values('kostaaa','teacher');
+insert into role values('javabook','teacher');
+insert into role values('andycandy','student');
+insert into role values('sinminsoo','student');
+insert into role values('lierkim','student');
+insert into role values('dbsxjf2','student');
+insert into role values('kanghw','student');
+insert into role values('choikiller','student');
+
+
+create SEQUENCE sug_seq INCREMENT by 1 start with 1;
+insert into SUGGESTIONS values( sug_seq.nextVal,'돈 왜 안주시나요?',sysdate,'곧 드릴게요',2,9);
+
+
+
+
 </pre>
