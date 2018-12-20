@@ -705,6 +705,101 @@ alter table teacher rename COLUMN taddr to taddr1;
 alter table admin add adaddr2 varchar2(128);
 alter table admin add adpost varchar2(128);
 alter table admin rename COLUMN adaddr to adaddr1;
+
+
+--------------------------2018.12.20
+/* ROLE */
+CREATE TABLE FINALPROJ.ROLE (
+	id VARCHAR2(36), /* id */
+	rolname VARCHAR2(36) /* rolname */
+);
+
+CREATE UNIQUE INDEX FINALPROJ.UIX_ROLE
+	ON FINALPROJ.ROLE (
+		id ASC
+	);
+
+ALTER TABLE FINALPROJ.ROLE
+	ADD
+		CONSTRAINT UK_ROLE
+		UNIQUE (
+			id
+		);
+
+/* suggestions */
+CREATE TABLE FINALPROJ.suggestions (
+	sugnum NUMBER(6) NOT NULL, /* 건의번호 */
+	sugcontent VARCHAR2(256), /* 건의내용 */
+	sugdate DATE, /* 건의날짜 */
+	sugrecont VARCHAR2(256), /* 댓글 */
+	sugtarget NUMBER(3), /* 건의대상 */
+	SNUM NUMBER(3) /* SNUM */
+);
+
+CREATE UNIQUE INDEX FINALPROJ.PK_suggestions
+	ON FINALPROJ.suggestions (
+		sugnum ASC
+	);
+
+ALTER TABLE FINALPROJ.suggestions
+	ADD
+		CONSTRAINT PK_suggestions
+		PRIMARY KEY (
+			sugnum
+		);
+
+/* membertable */
+CREATE TABLE FINALPROJ.membertable (
+	id VARCHAR2(36) NOT NULL, /* id */
+	pwd VARCHAR2(36), /* pwd */
+	enable NUMBER(1) /* enable */
+);
+
+CREATE UNIQUE INDEX FINALPROJ.PK_membertable
+	ON FINALPROJ.membertable (
+		id ASC
+	);
+
+CREATE UNIQUE INDEX FINALPROJ.UIX_membertable
+	ON FINALPROJ.membertable (
+		id ASC
+	);
+
+ALTER TABLE FINALPROJ.membertable
+	ADD
+		CONSTRAINT PK_membertable
+		PRIMARY KEY (
+			id
+		);
+
+ALTER TABLE FINALPROJ.membertable
+	ADD
+		CONSTRAINT UK_membertable
+		UNIQUE (
+			id
+		);
+
+ALTER TABLE FINALPROJ.ROLE
+	ADD
+		CONSTRAINT FK_membertable_TO_ROLE
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES FINALPROJ.membertable (
+			id
+		);
+
+ALTER TABLE FINALPROJ.suggestions
+	ADD
+		CONSTRAINT FK_STUDENT_TO_suggestions
+		FOREIGN KEY (
+			SNUM
+		)
+		REFERENCES FINALPROJ.STUDENT (
+			SNUM
+		);
+  
+-----------------------------------------
 </pre>
 
 # DB 더미 데이터
