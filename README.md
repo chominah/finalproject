@@ -800,6 +800,13 @@ ALTER TABLE FINALPROJ.suggestions
 		);
   
 -----------------------------------------
+-------18.12.23 재흥------
+alter table schedule add enddate date;
+
+---------------------------------------
+
+
+
 </pre>
 
 # DB 더미 데이터
