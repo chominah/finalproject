@@ -800,7 +800,11 @@ ALTER TABLE FINALPROJ.suggestions
 		);
   
 -----------------------------------------
--------18.12.23 재흥------
+
+-------18.12.23------
+-- 주형
+alter table resume add rtitle varchar2(128);
+-- 재흥
 alter table schedule add enddate date;
 
 ---------------------------------------
